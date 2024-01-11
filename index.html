@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | FAQ accordion</title>
+<!-- 
+  - White: hsl(0, 0%, 100%)
+  - Light pink: hsl(275, 100%, 97%)
+  - Grayishpurple: hsl(292, 16%, 49%)
+  - Darkpurple: hsl(292, 42%, 14%) -->
+
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    @font-face {
+      font-family: WorkSans-Bold;
+      src: url(assets/fonts/static/WorkSans-Bold.ttf);
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: WorkSans-Regular;
+      src: url(assets/fonts/static/WorkSans-Regular.ttf);
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: WorkSans-SemiBold;
+      src: url(assets/fonts/static/WorkSans-SemiBold.ttf);
+      font-weight: 600;
+    }
+
+    :root {
+      --Lightpink: hsl(275, 100%, 97%);
+      --Grayishpurple: hsl(292, 16%, 49%);
+      --Darkpurple: hsl(292, 42%, 14%);
+    }
+
+    body {
+      background-color: var(--Lightpink);
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      grid-template-rows: 30vh 70vh;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .bg {
+      width: 100vw;
+      height: 30vh;
+      background: url(assets/images/background-pattern-desktop.svg) center/cover no-repeat;
+      z-index: -1;
+      position: absolute;
+      top: 0;
+    }
+    
+
+    .card {
+      position: absolute;
+      padding: 24px;
+      text-align: left;
+      width: fit-content;
+      font-family: 'WorkSans-Regular', sans-serif;
+      border-radius: 20px;
+      background-color: hsl(0, 0%, 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-wrap: wrap;
+      z-index: 2;
+      width: 600px;
+      scale: 1.25;
+    }
+
+    .headline{
+      color: var(--Darkpurple);
+      font-family: 'WorkSans-Bold', sans-serif;
+      align-items: center;
+      font-size: 56px;
+      padding: 18px;
+    }
+    .content{
+      color: var(--Grayishpurple);
+      font-size: 16px;
+      color: var(--Darkpurple);
+    }
+    .accordion {
+      background-color: white;
+      color: var(--Darkpurple);
+      font-family: 'WorkSans-SemiBold', sans-serif;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      transition: 0.4s;
+    }
+
+    .accordion:after {
+      content: url(assets/images/icon-plus.svg);
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: url(assets/images/icon-minus.svg);
+    }
+
+    .panel {
+      padding: 0 18px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+  <div class="card">
+
+      <h1 class="headline"> 
+        <img src="assets/images/icon-star.svg" />
+        FAQs
+      </h1>
+
+      <button class="accordion active">
+        What is Frontend Mentor, and how will it help me?
+      </button>
+
+      <div class="panel" style="max-height: 112px;">
+        <p>
+          Frontend Mentor offers realistic coding challenges to help developers improve their 
+          frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+          all levels and ideal for portfolio building.
+        </p>
+      </div>
+
+      <button class="accordion">
+        Is Frontend Mentor free?
+      </button>
+      <div class="panel">
+        <p>
+          Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+          option providing access to a range of projects suitable for all skill levels.
+        </p>
+      </div>
+
+      <button class="accordion">
+      Can I use Frontend Mentor projects in my portfolio?
+    </button>
+      <div class="panel">
+        <p>
+          Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+    way to showcase your skills to potential employers!
+        </p>
+      </div>
+
+      <button class="accordion">
+        How can I get help if I'm stuck on a challenge?
+      </button>
+      <div class="panel">
+        <p>
+          The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+    channel where you can ask questions and seek support from other community members.
+        </p>
+      </div>
+
+  </div>
+
+ff  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+      </script>
+</body>
+</html>
